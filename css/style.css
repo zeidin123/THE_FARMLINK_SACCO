@@ -1,0 +1,22 @@
+*, *::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* sidebar styling */
+/* When you hover over the list items their background changes */
+.nav-pills li a:hover{
+    background-color: blue;
+}
+
+/* Admin Dashboard */
+.main-wrapper{
+    padding: 0;
+    background-color:#ADD8E6;
+    flex-shrink:1;
+}
+#view-panel{
+    /* width:calc(100% - 250px); */
+    padding: .5em;
+    height: 100%;
+}

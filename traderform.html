@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            margin: 0 0 20px;
+        }
+        input {
+    width: 90%; /* Increase the width if needed */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Adjust font size as needed */
+    overflow: auto; /* Enable horizontal scrolling if necessary */
+}
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0cbb3d;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .signup {
+            display: none;
+        }
+        .toggle {
+            color: #07d65d;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<form action="traderdashboard.php" method="post">
+    <div class="container" id="login-container">
+        <h2>Trader Login</h2>
+        <input type="text" id="login-idnumber" name="login-idnumber" placeholder="ID Number">
+        <input type="password" id="login-password" name="login-password" placeholder="Password">
+       <button id="login-button">Login</button>
+        <p class="toggle">Don't have an account? <span onclick="toggleForm('signup')">Sign up</span></p>
+        <p class="toggle"><a href="#" onclick="showForgotPasswordSection()">Forgot password?</a></p>
+    </div>
+</form>
+
+<form action="registertrader.php" method="post">
+    <div class="container signup" id="signup-container">
+        <h2>Trader Sign up</h2>
+        <input type="text" id="signup-firstname" name="signup-firstname" placeholder="First Name">
+        <input type="text" id="signup-lastname" name="signup-lastname" placeholder="Last Name">
+        <input type="text" id="signup-contactnumber" name="signup-contactnumber" placeholder="Contact Number">
+        <input type="text" id="signup-idnumber" name="signup-idnumber" placeholder="ID Number">
+        <input type="password" id="signup-password" name="signup-password" placeholder="Password">
+         <button id="signup-button">Sign up</button>
+        <p class="toggle">Already have an account? <span onclick="toggleForm('login')">Login</span></p>
+    </div>
+</form>
+
+
+
+<form action="registertrader.php">
+    <div class="container" id="forgot-password-container" style="display: none;">
+        <h2>Password Reset (Trader)</h2>
+        <label for="Contact Number">Contact Number:</label>
+        <input type="text" id="signup-contactnumber" name="signup-contactnumber" placeholder="Contact Number required">
+   
+        <label for="new_password">New Password:</label>
+        <input type="password" id="signup-password" name="signup-password" placeholder="New Password required">
+        <button type="submit">Reset Password</button>
+        <button id="go-back-button" onclick="goBackToLogin()" style="background-color: white; color: #089339;">&#8592;Go Back to Login</button>
+    </div>
+</form>
+
+    <script>
+        function showForgotPasswordSection() {
+            const loginContainer = document.getElementById('login-container');
+            const signupContainer = document.getElementById('signup-container');
+            const forgotPasswordContainer = document.getElementById('forgot-password-container');
+            
+            loginContainer.style.display = 'none';
+            signupContainer.style.display = 'none';
+            forgotPasswordContainer.style.display = 'block';
+        }
+    
+        function goBackToLogin() {
+            const loginContainer = document.getElementById('login-container');
+            const signupContainer = document.getElementById('signup-container');
+            const forgotPasswordContainer = document.getElementById('forgot-password-container');
+            
+            loginContainer.style.display = 'block';
+            signupContainer.style.display = 'none';
+            forgotPasswordContainer.style.display = 'none';
+        }
+    
+        function toggleForm(formId) {
+            const loginContainer = document.getElementById('login-container');
+            const signupContainer = document.getElementById('signup-container');
+            const forgotPasswordContainer = document.getElementById('forgot-password-container');
+            
+            if (formId === 'signup') {
+                loginContainer.style.display = 'none';
+                signupContainer.style.display = 'block';
+                forgotPasswordContainer.style.display = 'none';
+            } else if (formId === 'login') {
+                loginContainer.style.display = 'block';
+                signupContainer.style.display = 'none';
+                forgotPasswordContainer.style.display = 'none';
+            }
+        }
+    
+        // Find the sign-up button by its id
+        const signupButton = document.getElementById('signup-button');
+    
+        // Attach a click event listener to the sign-up button
+        signupButton.addEventListener('click', function() {
+            toggleForm('signup'); // Call the function to display the sign-up form
+        });
+    
+        function showForgotPasswordSection() {
+            const loginContainer = document.getElementById('login-container');
+            const signupContainer = document.getElementById('signup-container');
+            const forgotPasswordContainer = document.getElementById('forgot-password-container');
+            
+            loginContainer.style.display = 'none';
+            signupContainer.style.display = 'none';
+            forgotPasswordContainer.style.display = 'block';
+        }
+    </script>
+    
+</body>
+</html>
+
+
+
