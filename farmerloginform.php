@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Include the database connection file (config.php)
 require_once __DIR__ . "/config.php";
 
@@ -37,6 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $row = $result->fetch_assoc();
                 // Verify the password (you should use password hashing)
                 if ($password === $row['Password']) {
+
+
+                    $_SESSION['farmerID'] = $row['FarmerID'];
                     // Authentication successful
                     header("Location: farmerDashboard.php");
                     exit();

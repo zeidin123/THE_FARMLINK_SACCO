@@ -13,12 +13,16 @@ include_once __DIR__ . "/header.php";?>
             </a>
             <ul class="nav nav-pills flex-column mt-4">
                 <li class="nav-item py-2 py-sm-0">
-                <a href="traderDashboard.php?page2= orders" class="nav-link text-white">
-  <span class="fs-4 d-sm-inline"> Makes Orders </span> 
-                        </a>
-                    
-                </li>
-           
+                <a href="traderDashboard.php?page=makesorders" class="nav-link text-white">
+                <span class="fs-4 d-sm-inline"> Makes Orders </span> 
+                </a>  
+                </li> 
+
+                <li class="nav-item py-2 py-sm-0">
+                <a href="traderDashboard.php?page=viewOrders" class="nav-link text-white">
+                <span class="fs-4 d-sm-inline"> View Orders </span> 
+                </a>  
+                </li> 
             </ul>
         </div>
         <div class="dropdown open p-3">

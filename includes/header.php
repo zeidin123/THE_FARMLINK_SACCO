@@ -11,6 +11,9 @@
     <script src="https://kit.fontawesome.com/ed20622ed8.js" crossorigin="anonymous"></script>
     <!-- alertify js css links -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+
+    <!-- Links for the date picker js -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   </head>
 
   <body>

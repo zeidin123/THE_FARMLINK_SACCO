@@ -1,10 +1,10 @@
 <?php
-// The admin should be logged in to access this page
-// session_start();
-// if (!isset($_SESSION['auth'])) {
-//     header("Location: login.php");
-//     exit;
-// }
+// The employee should be logged in to access this page
+session_start();
+if (!isset($_SESSION['employeeID'])) {
+    header("Location: saccoemplogin.php");
+    exit;
+}
 ?>
 <?php require __DIR__ . '/includes/sidebaremp.php';?>
 
@@ -19,7 +19,4 @@
         <?php $page = isset($_GET['page']) ? $_GET['page'] : 'managedeliveries';
         include $page.'.php';
         ?>
-        <?php $page2 = isset($_GET['page2']) ? $_GET['page2'] : 'ordersupdate';
-        include $page2.'.php';
-        ?>    
     </main>

@@ -303,4 +303,50 @@ if(isset($_POST['delete_employee']))
 }
 
 
+// CREATE DELIVERY
+if(isset($_POST['create_delivery']))
+{
+    $farmer_id = $_POST["farmer_id"];
+    $quantity = $_POST["quantity"];
+    $date = $_POST["date"];
+    $empId = $_POST["empId"];
+
+    // if the form fields are empty, show an error
+    if($farmer_id == NULL || $quantity == NULL || $date == NULL || $empId == NULL)
+    {
+        $res = [
+            'status' => 422,
+            'message' => 'This field is mandatory'
+        ];
+        echo json_encode($res);
+        return;
+    }
+    // else insert farmer details into the database
+    $query = "INSERT INTO delivery(FarmerID, EmpID, Quantity, Date)VALUES(?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssss", $farmer_id, $empId, $quantity, $date);
+
+    $query_run = $stmt->execute();
+
+    if($query_run)
+    {
+        $res = [
+            'status' => 200,
+            'message' => 'Delivery Created Successfully'
+        ];
+        echo json_encode($res);
+        return;
+    }
+    else
+    {
+        $res = [
+            'status' => 500,
+            'message' => 'Delivery Not Created'
+        ];
+        echo json_encode($res);
+        return;
+    }
+}
+
+
 ?>

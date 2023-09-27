@@ -23,8 +23,21 @@ include_once __DIR__ . "/header.php";?>
                        
                 <li class="nav-item py-2 py-sm-0">
                     <a href="adminDashboard.php?page2=view traders" class="nav-link text-white">
-  <span class="fs-4 d-sm-inline">View Traders </span> 
+                        <span class="fs-4 d-sm-inline">View Traders </span> 
                         </a>
+                </li>
+
+                <li class="nav-item has-submenu dropdown py-2 py-sm-0">
+                    <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">Create Accounts</a>
+                    <ul class="submenu collapse dropdown-menu">
+                        
+                        <li class="nav-item"><a class="nav-link dropdown-item" href="adminDashboard.php?page=Create-accounts"
+                        data-bs-toggle="modal" data-bs-target="#farmerAddModal"
+                        >Create Delivery</a></li>
+                        <li class="nav-item"><a class="nav-link dropdown-item" href="adminDashboard.php?page=Create-accounts"
+                        data-bs-toggle="modal" data-bs-target="#farmerAddModal"
+                        >View Deliveries</a></li>
+                    </ul>
                 </li>
               
                
@@ -34,7 +47,7 @@ include_once __DIR__ . "/header.php";?>
             <button class="btn border-none dropdown-toggle text-white" type="button" id="triggerId" aria-expanded="false" data-bs-toggle="dropdown">
                 <i class="fa-solid fa-user"></i><span class="ms-2">Admin</span>
             </button>
-            <!-- Does'nt work currently because there is no login session for the admin -->
+            
             <div class="dropdown-menu" aria-labelledby="triggerId">
                 <a class="dropdown-item" href="adminLogout.php">Logout</a>
             </div>

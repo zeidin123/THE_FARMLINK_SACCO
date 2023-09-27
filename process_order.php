@@ -1,14 +1,17 @@
 <?php
 // Include your database connection code
 include 'config.php';
-// Get values from the form
+
+if (isset($_POST['createOrder'])) {
+    # code...
+}
 $Quantity = $_POST['quantity'];
 $Date = $_POST['date'];
-$PaymentStatus = $_POST['paymentStatus'];
-$OrderStatus = $_POST['orderStatus'];
+$traderId = $_POST['traderID'];
+
 
 // Insert data into the 'order' table (sreplace with your actual table name)
-$sql = "INSERT INTO `order` (Quantity, Date, PaymentStatus, OrderStatus) VALUES ('$Quantity', '$Date', '$PaymentStatus', '$OrderStatus')";
+$sql = "INSERT INTO `order` (Quantity, Date, TraderID) VALUES ('$Quantity', '$Date', '$traderId')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Order added successfully.";
@@ -16,4 +19,3 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$conn->close();

@@ -1,6 +1,11 @@
 <?php
 // The employee should be logged in to access this page
 // Include the necessary authentication check here
+session_start();
+if (!isset($_SESSION['traderID'])) {
+    header("Location: traderform.html");
+    exit;
+}
 ?>
 
 <?php require __DIR__ . '/includes/sidebartrader.php';?>
@@ -13,16 +18,9 @@
 <div class="main-wrapper">
     <main id="view-panel">
         <?php
-        // Determine which page to display based on the 'page' parameter
+        // show sidebar page based on the page name in the GET request
         $page = isset($_GET['page']) ? $_GET['page'] : 'makesorders';
-
-        // Include different sections based on the 'page' parameter
-        if ($page == 'makesorders') {
-            include 'makesorders.php'; // Include your existing 'makesorders.php' content
-        } else {
-            // Handle cases when an invalid or unrecognized 'page' parameter is provided
-            echo 'Invalid page request.';
-        }
+        include $page.'.php';
         ?>
     </main>
 </div>

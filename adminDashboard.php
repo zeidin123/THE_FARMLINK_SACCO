@@ -1,10 +1,10 @@
 <?php
 // The admin should be logged in to access this page
-// session_start();
-// if (!isset($_SESSION['auth'])) {
-//     header("Location: login.php");
-//     exit;
-// }
+session_start();
+if (!isset($_SESSION['adminID'])) {
+    header("Location: AdminLogin.php");
+    exit;
+}
 ?>
 <?php require __DIR__ . '/includes/sidebar.php';?>
 
@@ -19,11 +19,6 @@
         <?php $page = isset($_GET['page']) ? $_GET['page'] : 'Create-accounts';
         include $page.'.php';
         ?>
- <?php $page2 = isset($_GET['page2']) ? $_GET['page2'] : 'view traders';
-        include $page2.'.php';
-        ?>
-
-  
-
+        
     </main>
     

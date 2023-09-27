@@ -26,8 +26,20 @@ include_once __DIR__ . "/header.php";
                         <span class="fs-4 d-sm-inline">View Trader Orders</span>
                     </a>
                 </li>
+
+                <!-- Manage Deliveries drop down -->
+                <li class="nav-item has-submenu dropdown py-2 py-sm-0">
+                    <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"> Manage Deliveries</a>
+                    <ul class="submenu collapse dropdown-menu">
+                        <li><a class="nav-link dropdown-item" href="saccoempdashboard.php?page=createDelivery">Create Delivery</a></li>
+                        <li><a class="nav-link dropdown-item" href="saccoempdashboard.php?page=viewDelivery">View Deliveries</a></li>
+                    </ul>
+                </li>
             </ul>
+            
         </div>
+
+
         <div class="dropdown open p-3">
             <button class="btn border-none dropdown-toggle text-white" type="button" id="triggerId" aria-expanded="false" data-bs-toggle="dropdown">
                 <i class="fa-solid fa-user"></i><span class="ms-2">Employee</span>

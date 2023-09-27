@@ -1,9 +1,9 @@
 <?php
-// Include the database connection file (config.php)
-require_once __DIR__ . "/config.php";
-
 // Initialize the session
 session_start();
+
+// Include the database connection file (config.php)
+require_once __DIR__ . "/config.php";
 
 // Process the employee login form
 if (isset($_POST['employeeLogin'])) {
@@ -21,8 +21,8 @@ if (isset($_POST['employeeLogin'])) {
             $row = $result->fetch_assoc();
 
             // Store the logged-in employee's ID and TraderID in the session (if needed)
-            $_SESSION['employeeID'] = $row['EmployeeID'];
-            $_SESSION['traderID'] = $row['TraderID']; // Assuming TraderID is available in employee table
+            $_SESSION['employeeID'] = $row['EmpID'];
+            // $_SESSION['traderID'] = $row['TraderID']; // Assuming TraderID is available in employee table
 
             // Redirect to the employee dashboard upon successful login
             header("Location: saccoempdashboard.php");

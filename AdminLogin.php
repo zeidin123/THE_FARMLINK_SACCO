@@ -1,4 +1,7 @@
 <?php 
+// start a session
+session_start();
+
 // Include the database connection file (config.php)
 require_once __DIR__ . "/config.php";
 
@@ -34,6 +37,11 @@ if (isset($_POST['adminLogin'])) {
 
             // Check if a matching record was found
             if ($result->num_rows === 1) {
+                $row = $result->fetch_assoc();
+
+                // introduce a session to store admin id on the DB
+                $_SESSION['adminID'] = $row['AdminID'];
+
                 // Login successful, redirect to the dashboard
                 header("Location: adminDashboard.php");
                 exit();

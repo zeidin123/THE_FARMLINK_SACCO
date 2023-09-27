@@ -327,6 +327,45 @@ $.ajax({
 
 });
 
+// CREATE DELIVERY
+$(document).on('submit', '#createDelivery', function(e) {
+    e.preventDefault();
+
+    var formData = new FormData(this);
+    formData.append("create_delivery", true);
+
+    $.ajax({
+        type: "POST",
+        url: "code.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            
+            var res = jQuery.parseJSON(response);
+            if(res.status == 422) {
+                $('#deliveryErrorMessage').removeClass('d-none');
+                $('#deliveryErrorMessage').text(res.message);
+            }
+            else if(res.status == 200){
+                $('#deliveryErrorMessage').addClass('d-none');
+                $('#createDelivery')[0].reset();
+
+                alertify.set('notifier','position', 'top-right');
+                alertify.success(res.message);
+
+            }else if(res.status == 500) {
+                alert(res.message);
+            }
+        }
+    });
+
+});
+
+
+
+
+
 // script.js
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch total payments and deliveries

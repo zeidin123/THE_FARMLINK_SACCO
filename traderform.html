@@ -51,32 +51,33 @@
         }
     </style>
 </head>
+<!-- Login trader -->
 <body>
-<form action="traderdashboard.php" method="post">
+<form action="registertrader.php" method="post">
     <div class="container" id="login-container">
         <h2>Trader Login</h2>
-        <input type="text" id="login-idnumber" name="login-idnumber" placeholder="ID Number">
+        <input type="text" id="login-fullname" name="login-fullname" placeholder="Full Name">
         <input type="password" id="login-password" name="login-password" placeholder="Password">
-       <button id="login-button">Login</button>
+       <button type="submit" id="login-button" name="loginTrader">Login</button>
         <p class="toggle">Don't have an account? <span onclick="toggleForm('signup')">Sign up</span></p>
         <p class="toggle"><a href="#" onclick="showForgotPasswordSection()">Forgot password?</a></p>
     </div>
 </form>
 
+<!-- Signup trader -->
 <form action="registertrader.php" method="post">
     <div class="container signup" id="signup-container">
         <h2>Trader Sign up</h2>
-        <input type="text" id="signup-firstname" name="signup-firstname" placeholder="First Name">
-        <input type="text" id="signup-lastname" name="signup-lastname" placeholder="Last Name">
+        <input type="text" id="signup-fullname" name="signup-fullname" placeholder="Full Name">
         <input type="text" id="signup-contactnumber" name="signup-contactnumber" placeholder="Contact Number">
         <input type="text" id="signup-idnumber" name="signup-idnumber" placeholder="ID Number">
         <input type="password" id="signup-password" name="signup-password" placeholder="Password">
-         <button id="signup-button">Sign up</button>
+         <button type="submit" id="signup-button" name="signupTrader">Sign up</button>
         <p class="toggle">Already have an account? <span onclick="toggleForm('login')">Login</span></p>
     </div>
 </form>
 
-
+<!-- Reset password -->
 
 <form action="registertrader.php">
     <div class="container" id="forgot-password-container" style="display: none;">
@@ -92,6 +93,7 @@
 </form>
 
     <script>
+        
         function showForgotPasswordSection() {
             const loginContainer = document.getElementById('login-container');
             const signupContainer = document.getElementById('signup-container');
