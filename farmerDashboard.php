@@ -1,10 +1,9 @@
 <?php
-// The admin should be logged in to access this page
-// session_start();
-// if (!isset($_SESSION['auth'])) {
-//     header("Location: login.php");
-//     exit;
-// }
+session_start();
+if (!isset($_SESSION['farmerID'])) {
+    header("Location: farmerloginform.php");
+    exit;
+}
 ?>
 <?php require __DIR__ . '/includes/sidebarfarmer.php';?>
 
@@ -16,10 +15,7 @@
 <div class="main-wrapper">
     <main id="view-panel">
         <!-- show sidebar page based on the page name in the GET request -->
-        <?php $page = isset($_GET['page']) ? $_GET['page'] : 'view-deliveries';
+        <?php $page = isset($_GET['page']) ? $_GET['page'] : 'viewFarmerDeliveries';
         include $page.'.php';
-        ?>
-        <?php $page2 = isset($_GET['page2']) ? $_GET['page2'] : 'view-payments';
-        include $page2.'.php';
         ?>
     </main>

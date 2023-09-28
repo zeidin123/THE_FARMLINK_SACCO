@@ -8,45 +8,41 @@ require __DIR__ . "/config.php";
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h4>My orders</h4>
+                    <h4>My Deliveries</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered table-hover table-responsive">
                         <thead>
                             <tr>
-                                <th>Order Id</th>
+                                <th>Delivery Id</th>
                                 <th>Full Name</th>
                                 <th>Quantity</th>
                                 <th>Date(dd-mm-yy)</th>
-                                <th>Payment status</th>
-                                <th>Order status</th>
                             </tr>
                         </thead>
                         <tbody>
                             
                             <?php
-                            if (isset($_SESSION['traderID'])) {
-                                $trader_id = $_SESSION['traderID'];
+                            if (isset($_SESSION['farmerID'])) {
+                                $farmer_id = $_SESSION['farmerID'];
                             }
 
                             // get data from order and trader tables
-                            $sql = $conn->prepare("SELECT order.OrderID, order.Quantity,
-                            order.Date, order.PaymentStatus, order.OrderStatus, trader.FullName
-                            FROM `order`
-                            INNER JOIN `trader` 
-                            ON order.TraderID = trader.TraderID
-                            AND order.TraderID = '$trader_id'");
+                            $sql = $conn->prepare("SELECT delivery.DeliveryID, delivery.Quantity,
+                            delivery.Date, farmers.FullName
+                            FROM `delivery`
+                            INNER JOIN `farmers` 
+                            ON delivery.FarmerID = farmers.FarmerID
+                            AND delivery.FarmerID = '$farmer_id'");
                             $sql->execute();
                             $result = $sql->get_result();
                             if ($result->num_rows > 0) :
                                 while ($row = $result->fetch_assoc()) : ?>
                                     <tr>
-                                        <td><?php echo $row['OrderID']?></td> 
+                                        <td><?php echo $row['DeliveryID']?></td> 
                                         <td><?php echo $row['FullName']?></td>
                                         <td><?php echo $row['Quantity']?></td>
                                         <td><?php echo $row['Date']?></td>
-                                        <td><?php echo $row['PaymentStatus']?></td>
-                                        <td><?php echo $row['OrderStatus']?></td>
                                     </tr>
                                 <?php endwhile ?>
                             <?php endif?> 

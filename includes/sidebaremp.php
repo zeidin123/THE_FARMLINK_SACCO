@@ -13,14 +13,7 @@ include_once __DIR__ . "/header.php";
                 <span class="fs-4 d-none d-sm-inline ms-3">Employee Dashboard</span>
             </a>
             <ul class="nav nav-pills flex-column mt-4">
-                <li class="nav-item py-2 py-sm-0">
-                    <a href="saccoempdashboard.php?page=managedeliveries" class="nav-link text-white">
-                        <span class="fs-4 d-sm-inline">Manage Deliveries</span>
-                    </a>
-                </li>
-                <br>
-                <br>
-                <br>
+                
                 <li class="nav-item py-2 py-sm-0">
                     <a href="saccoempdashboard.php?page=ordersupdate" class="nav-link text-white">
                         <span class="fs-4 d-sm-inline">View Trader Orders</span>

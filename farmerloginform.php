@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Verify the password (you should use password hashing)
                 if ($password === $row['Password']) {
 
-
                     $_SESSION['farmerID'] = $row['FarmerID'];
                     // Authentication successful
                     header("Location: farmerDashboard.php");
